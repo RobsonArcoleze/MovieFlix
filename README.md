@@ -38,7 +38,7 @@ Um usuário possui nome, email e senha, sendo que o email é seu nome de usuári
 
 
 ### Modelo conceitual
-![Modelo Conceitual](https://github.com/vanessa-maganhoto/assets/blob/main/cap5-bds-movieflix/modelo-conceitual.png)
+![Modelo Conceitual](https://github.com/RobsonArcoleze/MovieFlix/blob/main/img/modelo%20de%20dominio.png)
 
 ## Tecnologias utilizadas
 ### Back end
