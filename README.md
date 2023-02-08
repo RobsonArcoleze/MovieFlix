@@ -1,4 +1,4 @@
-# TDD Domínio ORM e Autorizações
+# MovieFlix
 Implementação das funcionalidades necessárias para que os testes escritos utilizando o JUnit5 sejam cobertos. Este é um sistema de catálogo de filmes que somente o usuário MEMBER pode inserir avaliação.
 Exercício desenvolvido durante o Bootcamp Spring React da [DevSuperior](https://devsuperior.com.br/) como requisito obrigatório para obtenção do certificado.
 
