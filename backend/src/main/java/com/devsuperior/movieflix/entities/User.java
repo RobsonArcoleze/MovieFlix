@@ -104,7 +104,7 @@ public class User implements UserDetails, Serializable{
 		return reviews;
 	}
 	
-	public boolean hasHole (String roleName) {
+	public boolean hasRole (String roleName) {
 		for(Role role : roles) {
 			if(role.getAuthority().equals(roleName)) {
 				return true;
