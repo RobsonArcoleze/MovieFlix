@@ -1,109 +1,107 @@
 package com.devsuperior.movieflix.DTO;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.devsuperior.movieflix.entities.Movie;
-import com.devsuperior.movieflix.entities.Review;
 
 public class MovieDTO implements Serializable {
-	private static final long serialVersionUID = 1L;
-	
-	private Long id;
-	private String title;
-	private String subTitle;
-	private Integer year;
-	private String imgUri;
-	private String synopsis;
-	private Long genreId;
-	private List<ReviewDTO> reviews = new ArrayList<>();
-	
-	public MovieDTO() {
-	}
-	
-	public MovieDTO(Long id, String title, String subTitle, Integer year, String imgUri, String synopsis, Long genreId) {
-		this.id = id;
-		this.title = title;
-		this.subTitle = subTitle;
-		this.year = year;
-		this.imgUri = imgUri;
-		this.synopsis = synopsis;
-		this.genreId = genreId;
-	}
-	
-	public MovieDTO(Movie entity) {
-		id = entity.getId();
-		title = entity.getTitle();
-		subTitle = entity.getSubTitle();
-		year = entity.getYear();
-		imgUri = entity.getImgUrl();
-		synopsis = entity.getSynopsis();
-		genreId = entity.getGenre().getId();
-	}
-	
-	public MovieDTO(Movie entity, List<Review> reviews) {
-		this(entity);
-		reviews.forEach(rev -> this.reviews.add(new ReviewDTO(rev)));
-	}
-	
-	public Long getId() {
-		return id;
-	}
+    private static final long serialVersionUID= 1L;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    private Long id;
+    private String title;
+    private String subTitle;
+    private String imgUrl;
+    private String synopsis;
+    private Integer year;
 
-	public String getTitle() {
-		return title;
-	}
+    private GenreDTO genre;
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public MovieDTO() {
+    }
 
-	public String getSubTitle() {
-		return subTitle;
-	}
+    public MovieDTO(Long id, String title, String subTitle, String imgUrl, String synopsis, Integer year, GenreDTO genre) {
+        this.id = id;
+        this.title = title;
+        this.subTitle = subTitle;
+        this.imgUrl = imgUrl;
+        this.synopsis = synopsis;
+        this.year = year;
+        this.genre = genre;
+    }
 
-	public void setSubTitle(String subTitle) {
-		this.subTitle = subTitle;
-	}
+    public MovieDTO(Long id) {
+        this.id = id;
+    }
 
-	public Integer getYear() {
-		return year;
-	}
+    public MovieDTO(Movie movie){
+        this.id = movie.getId();
+        this.title = movie.getTitle();
+        this.subTitle = movie.getSubTitle();
+        this.imgUrl = movie.getImgUrl();
+        this.synopsis = movie.getSynopsis();
+        this.year = movie.getYear();
+        this.genre = new GenreDTO(movie.getGenre());
+    }
 
-	public void setYear(Integer year) {
-		this.year = year;
-	}
+    public void getMovieId(Long id){
+         this.id = id;
+    }
 
-	public String getImgUri() {
-		return imgUri;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setImgUri(String imgUri) {
-		this.imgUri = imgUri;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getSynopsis() {
-		return synopsis;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public void setSynopsis(String synopsis) {
-		this.synopsis = synopsis;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public Long getGenreId() {
-		return genreId;
-	}
+    public String getSubTitle() {
+        return subTitle;
+    }
 
-	public void setGenreId(Long genreId) {
-		this.genreId = genreId;
-	}
+    public void setSubTitle(String subTitle) {
+        this.subTitle = subTitle;
+    }
 
-	public List<ReviewDTO> getReviews() {
-		return reviews;
-	}
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
+    public String getSynopsis() {
+        return synopsis;
+    }
+
+    public void setSynopsis(String synopsis) {
+        this.synopsis = synopsis;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public GenreDTO getGenre() {
+        return genre;
+    }
+
+    public void setGenre(GenreDTO genre) {
+        this.genre = genre;
+    }
+
+    
 }

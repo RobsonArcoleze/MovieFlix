@@ -5,65 +5,62 @@ import java.io.Serializable;
 import javax.validation.constraints.NotBlank;
 
 import com.devsuperior.movieflix.entities.Review;
+import com.devsuperior.movieflix.entities.User;
 
 public class ReviewDTO implements Serializable {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private Long id;
-	
-	@NotBlank(message = "Campo requerido")
-	private String text;
-	private UserDTO user;
-	private Long movieId;
-	
-	public ReviewDTO() {
-	}
+    private Long id;
+    @NotBlank(message = "Preencha o campo para enviar a sua avaliação")
+    private String text;
+    private UserDTO user;
+    private Long movieId;
 
-	public ReviewDTO(Long id, String text, UserDTO user, Long movie) {
-		this.id = id;
-		this.text = text;
-		this.user = user;
-		this.movieId = movie;
-	}
-	
-	public ReviewDTO(Review entity) {
-		id = entity.getId();
-		text = entity.getText();
-		user = new UserDTO(entity.getUser());
-		movieId = entity.getMovie().getId();
-	}
+    public ReviewDTO() {
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public ReviewDTO(Review review) {
+        id = review.getId();
+        text = review.getText();
+        movieId = review.getMovie().getId();
+        user = new UserDTO(review.getUser());
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public ReviewDTO(Review review, User user) {
+        id = review.getId();
+        text = review.getText();
+        this.user = new UserDTO(user);
+    }
 
-	public String getText() {
-		return text;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setText(String text) {
-		this.text = text;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public UserDTO getUser() {
-		return user;
-	}
+    public String getText() {
+        return text;
+    }
 
-	public void setUser(UserDTO user) {
-		this.user = user;
-	}
+    public void setText(String text) {
+        this.text = text;
+    }
 
-	public Long getMovieId() {
-		return movieId;
-	}
+    public UserDTO getUser() {
+        return user;
+    }
 
-	public void setMovieId(Long movieId) {
-		this.movieId = movieId;
-	}
-	
-	
+    public void setUser(UserDTO user) {
+        this.user = user;
+    }
+
+    public Long getMovieId() {
+        return movieId;
+    }
+
+    public void setMovieId(Long movieId) {
+        this.movieId = movieId;
+    }
 }
